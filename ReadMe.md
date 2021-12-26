@@ -111,7 +111,7 @@ $ conda activate base
 (vs2022_dev{38,39})$ deactivate
 (base)$
 ```
-Additional commands can be found in the [cheet-sheets.pdf](doc/conda/conda-cheatsheet.pdf).
+Additional commands can be found in the [cheet-sheets.pdf](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf).
 
 ### Create and Load Conda Environment From `yml` File
 >Note: The `<os>` designation is either `ubnt1604` (for Ubuntu 16.04) or `win10` (for Windows 10).

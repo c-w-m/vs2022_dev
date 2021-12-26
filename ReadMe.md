@@ -21,7 +21,7 @@ $ git clone --recurse https://github.com/c-w-m/vs2022_dev.git   ## https or
 |------------|------------------------|
 | docs/*     | links and notes        |
 | ipynb/*    | sandbox/demo notebooks |
-| src/*      | submodules             |
+| src/*      | projects               |
 | src/demo   | sandbox code           |
 |------------|------------------------|
 
@@ -99,12 +99,12 @@ Switched to a new branch 'dev/lint'
 
 ## Anaconda Environment
 #### Using Conda
-Using the channel conda-forge and the [requirements.ubnt1604.txt](requirements.ubnt1604.txt) or [requirements.win10.txt](requirements.win10.txt) list of packages:
+Each project will have it's own `requirements.txt` list of packages:
 ```shell
 # activate conda base
 $ conda activate base
 (base)$ conda create -y --name vs2022_dev{38,39} python=3.{8,9}
-(base)$ conda install --force-reinstall -y -q --name vs2022_dev{38,39} -c anaconda -c conda-forge -c defaults --file requirements-min.txt
+(base)$ conda install --force-reinstall -y -q --name vs2022_dev{38,39} -c anaconda -c conda-forge -c defaults --file requirements.txt
 (base)$ conda activate vs2022_dev{38,39}
 (vs2022_dev{38,39})$ conda install <any missing packages>
 ...
@@ -161,6 +161,25 @@ Additional commands can be found in the [cheet-sheets.pdf](doc/conda/conda-cheat
 
 ----
 
+## Jupyter Notebooks
+Remember to use `ipykernel` to expose your python environment in Jupyterlab.
+```shell
+$ conda activate eda_dev39
+(vs2022_dev{38,39})$ python -m ipykernel install --user --name=vs2022_dev{38,39}
+(vs2022_dev{38,39})$ jupyter lab
+```
+
+#### List All Kernels
+```shell
+$ jupyter kernelspec list
+```
+#### Remove a Kernel
+```shell
+$ jupyter kernelspec uninstall <kernel_name>
+```
+
+----
+
 ## Develop Installations
 ### Install
 ```shell
@@ -185,25 +204,6 @@ the same location. Uninstalling with setup.py develop -u removes that link file 
 Do note that any install_requires dependencies not yet present are also installed, as
 regular eggs (they are easy_install-ed). Those dependencies are not uninstalled when
 uninstalling the development egg.
-
-----
-
-## Jupyter Notebooks
-Remember to use `ipykernel` to expose your python environment in Jupyterlab.
-```shell
-$ conda activate eda_dev39
-(vs2022_dev{38,39})$ python -m ipykernel install --user --name=vs2022_dev{38,39}
-(vs2022_dev{38,39})$ jupyter lab
-```
-
-#### List All Kernels
-```shell
-$ jupyter kernelspec list
-```
-#### Remove a Kernel
-```shell
-$ jupyter kernelspec uninstall <kernel_name>
-```
 
 ----
 

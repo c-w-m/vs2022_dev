@@ -71,6 +71,10 @@ htmlcov
 # JetBrains IDE
 .idea/
 
+# Visual Studio
+.vs/
+obj/
+
 # IDE project files
 .project
 .pydevproject
